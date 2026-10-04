@@ -1,0 +1,55 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Student Dashboard</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+ 
+<div class="container dashboard-container"> 
+ 
+    <h1>Student Dashboard</h1> 
+ 
+    <p>Welcome to your Internship Management Portal</p> 
+ 
+    <div class="dashboard-grid"> 
+ 
+        <a href="/internships" class="dashboard-card"> 
+            <div class="dashboard-icon">    </div> 
+            <h2>Browse Internships</h2> 
+            <p>Explore available internship opportunities.</p> 
+        </a> 
+ 
+        <a href="/applications" class="dashboard-card"> 
+            <div class="dashboard-icon">        </div> 
+            <h2>My Applications</h2> 
+            <p>View your submitted internship applications.</p> 
+        </a> 
+ 
+        <a href="/application-status" class="dashboard-card"> 
+            <div class="dashboard-icon">     </div> 
+            <h2>Application Status</h2> 
+            <p>Track the status of your applications.</p> 
+        </a> 
+ 
+        <a href="/profile" class="dashboard-card"> 
+            <div class="dashboard-icon">    </div> 
+            <h2>Student Profile</h2> 
+            <p>View your personal student information.</p> 
+        </a> 
+ 
+    </div> 
+ 
+    <br> 
+ 
+    <a href="/logout"> 
+        <button>Logout</button> 
+    </a> 
+ 
+</div> 
+ 
+</body> 
+</html> 

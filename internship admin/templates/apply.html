@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Apply for Internship</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+ 
+<div class="container apply-container"> 
+ 
+    <div class="apply-header"> 
+        <span class="details-badge">APPLICATION FORM</span> 
+ 
+        <h1>Apply for Internship</h1> 
+ 
+        <p>Complete the form below to submit your application.</p> 
+    </div> 
+ 
+    {% if internship %} 
+ 
+    <div class="selected-internship"> 
+ 
+        <h2>{{ internship.title }}</h2>
+ 
+        <p> 
+            <b>Company:</b> {{ internship.company }} 
+        </p> 
+ 
+        <p> 
+            <b>Location:</b> {{ internship.location }} 
+        </p> 
+ 
+    </div> 
+ 
+    {% endif %} 
+ 
+    <form method="POST" class="application-form"> 
+ 
+        <input 
+            type="text" 
+            name="name" 
+            placeholder="Full Name" 
+            required> 
+ 
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="Email Address" 
+            required> 
+ 
+        <input 
+            type="text" 
+            name="phone" 
+            placeholder="Phone Number" 
+            required> 
+ 
+        <button type="submit" class="submit-button"> 
+            Submit Application 
+        </button> 
+ 
+    </form> 
+ 
+    <div class="details-buttons"> 
+ 
+        <a href="/internships"> 
+            <button type="button">← Back to Internships</button> 
+        </a> 
+ 
+        <a href="/dashboard"> 
+            <button type="button">Dashboard</button> 
+        </a> 
+ 
+    </div> 
+ 
+</div> 
+ 
+</body> 
+</html>

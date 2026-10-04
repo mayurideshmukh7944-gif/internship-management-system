@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Students</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+        }
+
+        .header {
+            background-color: #4a4ae8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4a4ae8;
+            color: white;
+        }
+.add {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #4a4ae8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a4ae8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Manage Students</h1>
+    <p>Student Records</p>
+</div>
+
+<div class="container">
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student["id"] }}</td>
+            <td>{{ student["name"] }}</td>
+            <td>{{ student["email"] }}</td>
+            <td>{{ student["course"] }}</td>
+            <td>{{ student["year"] }}</td>
+            <td>
+                <td>
+    <a href="/admin/students/edit/{{ student['id'] }}">✏️ Edit</a>
+
+    <a href="/admin/students/delete/{{ student['id'] }}"
+       onclick="return confirm('Delete this student?')">
+       🗑️ Delete
+    </a>
+</td>
+    
+        </tr>
+        {% endfor %}
+
+<a href="/admin/students/add" class="add">
+    ➕ Add Student
+</a>
+    </table>
+
+    <a href="/admin/dashboard" class="back">Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

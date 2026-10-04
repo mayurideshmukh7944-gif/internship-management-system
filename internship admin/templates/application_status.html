@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Application Status</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+<body> 
+<div class="container status-container"> 
+    <div class="status-header"> 
+        <span class="details-badge">APPLICATION TRACKER</span> 
+        <h1>Application Status</h1> 
+        <p>Track the current status of your internship applications.</p> 
+    </div> 
+    {% if applications %} 
+        <div class="status-list"> 
+ 
+            {% for application in applications %} 
+ 
+            <div class="status-card"> 
+ 
+                <div class="status-card-header"> 
+ 
+                    <div> 
+                        <h2>{{ application.internship }}</h2> 
+ 
+                        <p> 
+                            <b>Company:</b> 
+                            {{ application.company }} 
+                        </p> 
+                    </div> 
+ 
+                    <span class="status status-pending"> 
+                        {{ application.status }} 
+                    </span> 
+ 
+                </div> 
+ 
+                <div class="status-info"> 
+ 
+                    
+                    <p> 
+                        <b>     Applicant:</b> 
+                        {{ application.student_name }} 
+                    </p> 
+                </div> 
+            </div> 
+            {% endfor %} 
+        </div> 
+    {% else %} 
+        <div class="empty-status"> 
+            <div class="empty-icon">     </div> 
+            <h2>No Applications Found</h2> 
+            <p>Apply for an internship to see its status here.</p> 
+        </div> 
+    {% endif %} 
+    <div class="details-buttons"> 
+        <a href="/applications"> 
+            <button>My Applications</button> 
+        </a> 
+        <a href="/dashboard"> 
+            <button>Back to Dashboard</button> 
+        </a> 
+    </div> 
+</div> 
+</body> 
+</html> 

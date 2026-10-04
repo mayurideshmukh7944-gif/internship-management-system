@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>My Applications</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+ 
+<div class="container applications-container"> 
+ 
+    <div class="applications-header"> 
+        <span class="details-badge">MY APPLICATIONS</span> 
+ 
+        <h1>My Applications</h1> 
+ 
+        <p>Track the internships you have applied for.</p> 
+    </div> 
+ 
+    {% if applications %} 
+ 
+        <div class="applications-list"> 
+ 
+            {% for application in applications %} 
+ 
+            <div class="application-card"> 
+ 
+                <div class="application-top"> 
+ 
+                    <div> 
+                     {{ application.internship }}
+ 
+                        <p> 
+                            <b>Company:</b> 
+                            {{ application.company }} 
+                        </p> 
+                    </div> 
+ 
+                    <span class="status">
+    {{ application.status }}
+</span>
+ 
+                </div> 
+ 
+                <div class="application-details"> 
+ 
+                      
+                        <b>     Applicant:</b> 
+                        {{ application.student_name }} 
+                    </p> 
+ 
+                    <p> 
+                        <b>        Email:</b> 
+                        {{ application.student_email }} 
+                    </p> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+            {% endfor %} 
+ 
+        </div> 
+ 
+    {% else %} 
+ 
+        <div class="empty-applications"> 
+ 
+            <div class="empty-icon">        </div> 
+ 
+            <h2>No Applications Yet</h2> 
+ 
+            <p> 
+                You haven't applied for any internship yet. 
+            </p> 
+ 
+            <a href="/internships"> 
+                <button>Browse Internships</button> 
+            </a> 
+ 
+        </div> 
+ 
+    {% endif %} 
+ 
+    <div class="details-buttons"> 
+ 
+        <a href="/internships"> 
+            <button>Browse Internships</button> 
+        </a> 
+ 
+        <a href="/dashboard"> 
+            <button>Back to Dashboard</button> 
+        </a> 
+ 
+    </div> 
+ 
+</div> 
+ 
+</body> 
+</html> 
+ 

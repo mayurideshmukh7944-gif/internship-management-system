@@ -1,0 +1,100 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Browse Internships</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+    <div class="internship-search">
+    <form action="/internships" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by internship, company or location"
+            value="{{ search }}"
+        >
+
+        <button type="submit">Search</button>
+
+    </form>
+</div>
+ 
+<div class="container internship-container"> 
+ 
+    <h1>Available Internships</h1> 
+ 
+    <p>Explore internship opportunities and find the right one for you.</p> 
+ 
+    {% if internships %}
+
+<div class="internship-grid">
+
+    {% for internship in internships %}
+
+    <div class="internship-card">
+
+        <div class="job-icon"></div>
+
+        <h2>{{ internship.title }}</h2>
+
+        <p><b>Company:</b> {{ internship.company }}</p>
+        <p><b>Location:</b> {{ internship.location }}</p>
+        <p><b>Duration:</b> {{ internship.duration }}</p>
+
+        <a href="/internship/{{ internship.id }}">
+            <button>View Details</button>
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<p>No internships available right now.</p>
+
+{% endif %} 
+ 
+            <h2>Data Analyst Intern</h2> 
+ 
+            <p><b>Company:</b> Tiger Analytics</p> 
+            <p><b>Location:</b> Mumbai</p> 
+            <p><b>Duration:</b> 3 Months</p> 
+ 
+            <a href="/internship/2"> 
+                <button>View Details</button> 
+            </a> 
+        </div> 
+ 
+        <div class="internship-card"> 
+            <div class="job-icon"> </div> 
+ 
+            <h2>Web Developer Intern</h2> 
+ 
+            <p><b>Company:</b> Tech Solutions</p> 
+            <p><b>Location:</b> Nagpur</p> 
+            <p><b>Duration:</b> 3 Months</p> 
+ 
+            <a href="/internship/3"> 
+                <button>View Details</button> 
+            </a> 
+        </div> 
+ 
+    </div> 
+ 
+    <br> 
+ 
+    <a href="/dashboard"> 
+        <button>Back to Dashboard</button> 
+    </a> 
+ 
+</div> 
+ 
+</body> 
+</html> 

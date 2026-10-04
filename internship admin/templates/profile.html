@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Student Profile</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+ 
+<div class="container profile-container"> 
+ 
+    <div class="profile-header"> 
+        <div class="profile-avatar">    </div> 
+ 
+        <span class="details-badge">STUDENT PROFILE</span> 
+ 
+        <h1>{{ student.name }}</h1> 
+ 
+        <p>Student information and account details</p> 
+    </div> 
+ 
+    {% if student %} 
+ 
+    <div class="profile-card"> 
+ 
+        <div class="profile-row"> 
+            <span>     Full Name</span> 
+            <strong>{{ student.name }}</strong> 
+        </div> 
+ 
+        <div class="profile-row"> 
+            <span>        Email</span> 
+            <strong>{{ student.email }}</strong> 
+        </div> 
+ 
+        <div class="profile-row"> 
+            <span>       Phone</span> 
+            <strong>{{ student.phone }}</strong> 
+        </div> 
+ 
+        <div class="profile-row"> 
+            <span>    College</span> 
+            <strong>{{ student.college }}</strong> 
+        </div> 
+ 
+    </div> 
+ 
+    {% else %} 
+ 
+    <div class="empty-profile"> 
+        <div class="empty-icon">    </div> 
+        <h2>No Profile Information</h2> 
+        <p>Please register first to view your profile.</p> 
+    </div> 
+ 
+    {% endif %} 
+ 
+    <div class="details-buttons"> 
+ 
+        <a href="/dashboard"> 
+            <button>Back to Dashboard</button> 
+        </a> 
+ 
+        <a href="/logout"> 
+            <button>Logout</button> 
+        </a> 
+ 
+    </div> 
+ 
+</div> 
+ 
+</body> 
+</html> 

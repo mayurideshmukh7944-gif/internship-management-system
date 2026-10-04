@@ -1,0 +1,79 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Internship Details</title> 
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='style.css') }}"> 
+</head> 
+ 
+<body> 
+ 
+<div class="container details-container"> 
+ 
+    <div class="details-header"> 
+        <span class="details-badge">INTERNSHIP OPPORTUNITY</span> 
+        <h1>{{ internship.title }}</h1>
+        <p>{{ internship.company }} • {{ internship.location }}</p> 
+    </div> 
+ 
+    <div class="details-grid"> 
+ 
+        <div class="details-info"> 
+            <h2>Internship Information</h2> 
+ 
+            <div class="info-item"> 
+                <span>       Company</span> 
+                <strong>{{ internship.company }}</strong> 
+            </div> 
+ 
+            <div class="info-item"> 
+                <span>    Location</span> 
+                <strong>{{ internship.location }}</strong> 
+            </div> 
+ 
+            <div class="info-item"> 
+                <span>       Duration</span> 
+                <strong>{{ internship.duration }}</strong> 
+            </div> 
+ 
+           <div class="info-item"> 
+    <span>   Eligibility</span> 
+    <strong>{{ internship.eligibility }}</strong> 
+</div> 
+ 
+ 
+        <div class="apply-box"> 
+ 
+            <h2>Ready to Apply?</h2> 
+ 
+            <p> 
+                Submit your application and start your internship journey. 
+            </p> 
+ 
+            <a href="/apply/{{ internship_id }}"> 
+                <button class="apply-button"> 
+                    Apply for Internship 
+                </button> 
+            </a> 
+ 
+        </div> 
+ 
+    </div> 
+ 
+    <div class="details-buttons"> 
+ 
+        <a href="/internships"> 
+            <button>← Back to Internships</button> 
+        </a> 
+ 
+        <a href="/dashboard"> 
+            <button>Dashboard</button> 
+        </a> 
+ 
+    </div> 
+ 
+</div> 
+ 
+</body> 
+</html>

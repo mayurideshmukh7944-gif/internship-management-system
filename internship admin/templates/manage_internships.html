@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Internships</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        .header {
+            background-color: #4a4ae8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4a4ae8;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .edit {
+            background-color: orange;
+            color: white;
+            padding: 6px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .delete {
+            background-color: red;
+            color: white;
+            padding: 6px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a4ae8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Internship Management System</h1>
+        <p>Manage Internships</p>
+    </div>
+
+    <div class="container">
+
+        <h2>Internship Records</h2>
+
+        <a href="/admin/internships/add" class="add-btn">+ Add Internship</a>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Company</th>
+                <th>Internship Title</th>
+                <th>Location</th>
+                <th>Duration</th>
+                <th>Eligibility</th>
+                <th>Action</th>
+            </tr>
+
+            {% for internship in internships %}
+<tr>
+    <td>{{ internship["id"] }}</td>
+    <td>{{ internship["company"] }}</td>
+    <td>{{ internship["title"] }}</td>
+    <td>{{ internship["location"] }}</td>
+    <td>{{ internship["duration"] }}</td>
+    <td>{{ internship["eligibility"] }}</td>
+    <td>
+        <a href="/admin/internships/edit/{{ internship['id'] }}" class="edit">Edit</a>
+        
+        <a href="/admin/internships/delete/{{ internship['id'] }}" class="delete">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+        </table>
+
+        <a href="/admin/dashboard" class="back">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

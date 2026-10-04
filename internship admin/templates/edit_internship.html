@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Internship</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Edit Internship</h2>
+
+    <form method="POST">
+
+        <label>Company Name</label>
+        <input type="text" name="company"
+               value="{{ internship['company'] }}" required>
+
+        <label>Internship Title</label>
+        <input type="text" name="title"
+               value="{{ internship['title'] }}" required>
+
+        <label>Location</label>
+        <input type="text" name="location"
+               value="{{ internship['location'] }}" required>
+
+        <label>Duration</label>
+        <input type="text" name="duration"
+               value="{{ internship['duration'] }}" required>
+
+        <label>Eligibility</label>
+        <input type="text" name="eligibility"
+               value="{{ internship['eligibility'] }}" required>
+
+        <button type="submit">Update Internship</button>
+
+    </form>
+
+    <a href="/admin/internships" class="back">
+        ← Back to Internships
+    </a>
+
+</div>
+
+</body>
+</html>
